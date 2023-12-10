@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+        <title>Yale Residential College Quiz</title>
+    </head>
+
+    <body>
+        <!-- Display the title of the quiz -->
+        <h1>Yale Residential College Quiz</h1>
+        <!-- Create a form for submitting quiz answers -->
+        <form action="{{ url_for('quiz') }}" method="POST">
+            <!-- Loop through each quiz question -->
+            {% for question in questions %}
+                <div>
+                <!-- Display the question -->
+                    <p>{{ question }}</p>
+                <!-- Handle different options based on the question index -->
+                    {% if loop.index0 == 0 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="On Old Campus"> On Old Campus
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="In my residential college"> In my residential college
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 1 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="A pottery kiln"> A pottery kiln
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Massage chairs"> Massage chairs
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="A stage theater"> A stage theater
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="A screening room"> A screening room
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 2 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Georgian Colonial Style"> Georgian Colonial Style
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Beaux-Arts Style"> Beaux-Arts Style
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Gothic style"> Gothic style
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 3 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Science Hill"> Science Hill
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Old Campus"> Old Campus
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Somewhere in between"> Somewhere in between
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 4 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Squirrels"> Squirrels
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Lions"> Lions
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Spiders"> Spiders
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Salamanders"> Salamanders
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 5 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Older"> Older
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Newer"> Newer
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 6 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Green"> Green
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Blue"> Blue
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Red"> Red
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Black"> Black
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 7 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Yes"> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="No"> No
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 8 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Anderson Cooper"> Anderson Cooper
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Angela Bassett"> Angela Bassett
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Nathan Chen"> Nathan Chen
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Fareed Zakaria"> Fareed Zakaria
+                        </label>
+                    {% endif %}
+
+                    {% if loop.index0 == 9 %}
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Pasta"> Pasta
+                        </label>
+                        <label>
+                            <input type="radio" name="question_{{ loop.index0 }}" value="Pizza"> Pizza
+                        </label>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <!-- Button to submit the quiz with a JavaScript validation -->
+            <button type="submit" onclick="validateQuiz()">Submit</button>
+        </form>
+    </body>
+
+</html>
